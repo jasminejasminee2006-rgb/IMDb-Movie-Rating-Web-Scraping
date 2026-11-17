@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>IMDb Movie Rating Analyzer</title>
+
+<style>
+body {
+    background: #141414;
+    color: white;
+    font-family: Arial;
+    padding: 25px;
+}
+
+h1 {
+    background: #f5c518;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+input {
+    width: 90%;
+    padding: 14px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+}
+
+th {
+    background: #f5c518;
+    padding: 13px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #eeeeee;
+}
+
+a {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>IMDb Movie Rating Analyzer</h1>
+
+<h2>Top 100 Movies</h2>
+
+<input type="text" id="search"
+placeholder="Search your favourite movie..."
+onkeyup="searchMovie()">
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>primaryTitle</th>
+      <th>startYear</th>
+      <th>genres</th>
+      <th>averageRating</th>
+      <th>numVotes</th>
+      <th>IMDb Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sohla: Celebration Under the Grey Sky</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>10.0</td>
+      <td>1259</td>
+      <td><a href="https://www.imdb.com/title/tt38608685/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Mayookha</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>10.0</td>
+      <td>2126</td>
+      <td><a href="https://www.imdb.com/title/tt39378361/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Maa Ramudu Andarivadu</td>
+      <td>2026</td>
+      <td>Action,Family,Romance</td>
+      <td>9.9</td>
+      <td>1016</td>
+      <td><a href="https://www.imdb.com/title/tt43638980/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>In Medias Res</td>
+      <td>2011</td>
+      <td>Thriller</td>
+      <td>9.8</td>
+      <td>1179</td>
+      <td><a href="https://www.imdb.com/title/tt1954538/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Om Ka Hari</td>
+      <td>2026</td>
+      <td>Comedy,Drama</td>
+      <td>9.8</td>
+      <td>5027</td>
+      <td><a href="https://www.imdb.com/title/tt36853476/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Red Bag</td>
+      <td>2026</td>
+      <td>Action,Drama,Mystery</td>
+      <td>9.8</td>
+      <td>1043</td>
+      <td><a href="https://www.imdb.com/title/tt42820635/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Summer Holidays</td>
+      <td>2026</td>
+      <td>Drama,Family</td>
+      <td>9.7</td>
+      <td>1007</td>
+      <td><a href="https://www.imdb.com/title/tt43089752/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>One/4</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.6</td>
+      <td>1050</td>
+      <td><a href="https://www.imdb.com/title/tt39444605/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Tutt Paini English Ne</td>
+      <td>2026</td>
+      <td>Comedy</td>
+      <td>9.6</td>
+      <td>1036</td>
+      <td><a href="https://www.imdb.com/title/tt44862836/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Risk(The game of youth)</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.6</td>
+      <td>2247</td>
+      <td><a href="https://www.imdb.com/title/tt34547702/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Laggam Time</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.5</td>
+      <td>1093</td>
+      <td><a href="https://www.imdb.com/title/tt34464200/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Manjar</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>9.5</td>
+      <td>2462</td>
+      <td><a href="https://www.imdb.com/title/tt44535674/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Dashami</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>9.5</td>
+      <td>1012</td>
+      <td><a href="https://www.imdb.com/title/tt46663235/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Rascal Does Not Dream of a Dear Friend</td>
+      <td>2026</td>
+      <td>Animation,Drama,Fantasy</td>
+      <td>9.5</td>
+      <td>1878</td>
+      <td><a href="https://www.imdb.com/title/tt39927807/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Anbil Avan</td>
+      <td>2026</td>
+      <td>Action,Romance,Thriller</td>
+      <td>9.5</td>
+      <td>2497</td>
+      <td><a href="https://www.imdb.com/title/tt35682855/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Bhavaantara</td>
+      <td>2026</td>
+      <td>Drama,Romance</td>
+      <td>9.4</td>
+      <td>1061</td>
+      <td><a href="https://www.imdb.com/title/tt43301833/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Father's Day</td>
+      <td>2026</td>
+      <td>Comedy,Drama,Family</td>
+      <td>9.4</td>
+      <td>1025</td>
+      <td><a href="https://www.imdb.com/title/tt37537334/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Krishna Leela</td>
+      <td>2025</td>
+      <td>NaN</td>
+      <td>9.4</td>
+      <td>2065</td>
+      <td><a href="https://www.imdb.com/title/tt36873019/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Golden Opulence: 500 Years of Luxury in Anatolia</td>
+      <td>2024</td>
+      <td>Documentary</td>
+      <td>9.4</td>
+      <td>1790</td>
+      <td><a href="https://www.imdb.com/title/tt32029878/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Thaainilam</td>
+      <td>2024</td>
+      <td>Drama</td>
+      <td>9.4</td>
+      <td>1023</td>
+      <td><a href="https://www.imdb.com/title/tt32986244/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Bad Girlz</td>
+      <td>2025</td>
+      <td>Comedy,Romance</td>
+      <td>9.3</td>
+      <td>2051</td>
+      <td><a href="https://www.imdb.com/title/tt38045101/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Shawshank Redemption</td>
+      <td>1994</td>
+      <td>Drama</td>
+      <td>9.3</td>
+      <td>3264913</td>
+      <td><a href="https://www.imdb.com/title/tt0111161/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Jibon Theke Neya</td>
+      <td>1970</td>
+      <td>Drama,Family</td>
+      <td>9.3</td>
+      <td>2387</td>
+      <td><a href="https://www.imdb.com/title/tt0989831/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Great Punjab Robbery</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>9.3</td>
+      <td>1761</td>
+      <td><a href="https://www.imdb.com/title/tt39150248/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Okka Chuputho</td>
+      <td>2026</td>
+      <td>Drama,Family</td>
+      <td>9.3</td>
+      <td>2018</td>
+      <td><a href="https://www.imdb.com/title/tt45368623/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Sardar Sarvai Papanna - The Rebel King of Deccan</td>
+      <td>2026</td>
+      <td>History</td>
+      <td>9.3</td>
+      <td>1005</td>
+      <td><a href="https://www.imdb.com/title/tt43710843/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Andhaka</td>
+      <td>2025</td>
+      <td>Drama,Thriller</td>
+      <td>9.3</td>
+      <td>1784</td>
+      <td><a href="https://www.imdb.com/title/tt38907532/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Paach Futaacha Bachchan</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.2</td>
+      <td>1016</td>
+      <td><a href="https://www.imdb.com/title/tt44842744/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Pathibeku.com</td>
+      <td>2018</td>
+      <td>Drama</td>
+      <td>9.2</td>
+      <td>1148</td>
+      <td><a href="https://www.imdb.com/title/tt8933672/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Uttutta Herolu</td>
+      <td>2026</td>
+      <td>Comedy</td>
+      <td>9.2</td>
+      <td>1468</td>
+      <td><a href="https://www.imdb.com/title/tt40108671/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Ee Paata Korinavaaru Nemalipaalem Nundi</td>
+      <td>2026</td>
+      <td>Drama,Music,Thriller</td>
+      <td>9.2</td>
+      <td>5021</td>
+      <td><a href="https://www.imdb.com/title/tt45643304/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Godfather</td>
+      <td>1972</td>
+      <td>Crime,Drama</td>
+      <td>9.2</td>
+      <td>2272484</td>
+      <td><a href="https://www.imdb.com/title/tt0068646/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Happy Journey</td>
+      <td>2026</td>
+      <td>Comedy,Drama</td>
+      <td>9.2</td>
+      <td>1753</td>
+      <td><a href="https://www.imdb.com/title/tt42655940/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Oye Chill Maar</td>
+      <td>2026</td>
+      <td>Comedy,Drama</td>
+      <td>9.2</td>
+      <td>2096</td>
+      <td><a href="https://www.imdb.com/title/tt44734409/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Hey Chikittha</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.1</td>
+      <td>1775</td>
+      <td><a href="https://www.imdb.com/title/tt35836621/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Ramayana: The Legend of Prince Rama</td>
+      <td>1993</td>
+      <td>Action,Adventure,Animation</td>
+      <td>9.1</td>
+      <td>18623</td>
+      <td><a href="https://www.imdb.com/title/tt0259534/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Dark Knight</td>
+      <td>2008</td>
+      <td>Crime,Thriller</td>
+      <td>9.1</td>
+      <td>3250707</td>
+      <td><a href="https://www.imdb.com/title/tt0468569/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Harvest</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>9.1</td>
+      <td>2962</td>
+      <td><a href="https://www.imdb.com/title/tt9522946/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>National Theatre Live: Prima Facie</td>
+      <td>2022</td>
+      <td>Drama</td>
+      <td>9.1</td>
+      <td>3705</td>
+      <td><a href="https://www.imdb.com/title/tt21093976/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Dharmasthala Niyojakavargam</td>
+      <td>2026</td>
+      <td>Action,Drama,Thriller</td>
+      <td>9.1</td>
+      <td>1949</td>
+      <td><a href="https://www.imdb.com/title/tt39917515/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Brahma Kamala</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.1</td>
+      <td>1016</td>
+      <td><a href="https://www.imdb.com/title/tt27773916/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Beauty</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>9.1</td>
+      <td>1065</td>
+      <td><a href="https://www.imdb.com/title/tt43612289/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Sherr</td>
+      <td>2026</td>
+      <td>Action,Thriller</td>
+      <td>9.1</td>
+      <td>2035</td>
+      <td><a href="https://www.imdb.com/title/tt42952864/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Magazine</td>
+      <td>2026</td>
+      <td>Adventure,Family</td>
+      <td>9.1</td>
+      <td>4032</td>
+      <td><a href="https://www.imdb.com/title/tt45064621/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>321 (Love Marriage vs Arranged)</td>
+      <td>2026</td>
+      <td>Comedy,Drama,Family</td>
+      <td>9.1</td>
+      <td>1077</td>
+      <td><a href="https://www.imdb.com/title/tt47696785/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Chaos Class</td>
+      <td>1975</td>
+      <td>Comedy</td>
+      <td>9.1</td>
+      <td>46992</td>
+      <td><a href="https://www.imdb.com/title/tt0252487/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Baa Baa Black Sheep</td>
+      <td>2026</td>
+      <td>Comedy,Crime</td>
+      <td>9.1</td>
+      <td>1595</td>
+      <td><a href="https://www.imdb.com/title/tt43716419/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Donga Naa Koduku</td>
+      <td>2026</td>
+      <td>Comedy,Crime</td>
+      <td>9.1</td>
+      <td>1182</td>
+      <td><a href="https://www.imdb.com/title/tt43738410/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Panchali Panchabhartruka</td>
+      <td>2026</td>
+      <td>Crime</td>
+      <td>9.1</td>
+      <td>2107</td>
+      <td><a href="https://www.imdb.com/title/tt43697353/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Lord of the Rings: The Return of the King</td>
+      <td>2003</td>
+      <td>Adventure,Drama,Fantasy</td>
+      <td>9.0</td>
+      <td>2208008</td>
+      <td><a href="https://www.imdb.com/title/tt0167260/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Unpaarvayil</td>
+      <td>2025</td>
+      <td>Thriller</td>
+      <td>9.0</td>
+      <td>10060</td>
+      <td><a href="https://www.imdb.com/title/tt15176374/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Garividi Lakshmi</td>
+      <td>2026</td>
+      <td>Biography,Drama,Music</td>
+      <td>9.0</td>
+      <td>1071</td>
+      <td><a href="https://www.imdb.com/title/tt37645628/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Time of Violence</td>
+      <td>1988</td>
+      <td>Drama</td>
+      <td>9.0</td>
+      <td>2636</td>
+      <td><a href="https://www.imdb.com/title/tt0096403/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Aguner Poroshmoni</td>
+      <td>1994</td>
+      <td>Drama,War</td>
+      <td>9.0</td>
+      <td>3590</td>
+      <td><a href="https://www.imdb.com/title/tt0383177/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Psychic</td>
+      <td>2026</td>
+      <td>Crime,Mystery</td>
+      <td>9.0</td>
+      <td>1026</td>
+      <td><a href="https://www.imdb.com/title/tt42191325/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Mayabazar</td>
+      <td>1957</td>
+      <td>Comedy,Drama,Fantasy</td>
+      <td>9.0</td>
+      <td>7107</td>
+      <td><a href="https://www.imdb.com/title/tt0249795/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Nagara Haavu</td>
+      <td>1972</td>
+      <td>Drama,Musical</td>
+      <td>9.0</td>
+      <td>1282</td>
+      <td><a href="https://www.imdb.com/title/tt0232152/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Schindler's List</td>
+      <td>1993</td>
+      <td>Biography,Drama,History</td>
+      <td>9.0</td>
+      <td>1613624</td>
+      <td><a href="https://www.imdb.com/title/tt0108052/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Love Lottery</td>
+      <td>2026</td>
+      <td>Drama,Romance,Thriller</td>
+      <td>9.0</td>
+      <td>1216</td>
+      <td><a href="https://www.imdb.com/title/tt40039371/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Shreemati Sindoora</td>
+      <td>2026</td>
+      <td>Drama,Family</td>
+      <td>9.0</td>
+      <td>1026</td>
+      <td><a href="https://www.imdb.com/title/tt42331111/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Diamond Dacoit</td>
+      <td>2026</td>
+      <td>Action</td>
+      <td>9.0</td>
+      <td>1504</td>
+      <td><a href="https://www.imdb.com/title/tt42405037/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Zakhma Toh Chardikala Tak</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>9.0</td>
+      <td>4041</td>
+      <td><a href="https://www.imdb.com/title/tt41850358/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Enemy of the Smuggler</td>
+      <td>2026</td>
+      <td>Crime,Thriller</td>
+      <td>9.0</td>
+      <td>1100</td>
+      <td><a href="https://www.imdb.com/title/tt43681681/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Oka Court Case</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>9.0</td>
+      <td>2033</td>
+      <td><a href="https://www.imdb.com/title/tt43594042/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Damru</td>
+      <td>2026</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>1017</td>
+      <td><a href="https://www.imdb.com/title/tt43597126/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Ashi Hi Banwa Banwi</td>
+      <td>1988</td>
+      <td>Comedy</td>
+      <td>9.0</td>
+      <td>2421</td>
+      <td><a href="https://www.imdb.com/title/tt0267277/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Chitti - Potti</td>
+      <td>2024</td>
+      <td>Drama,Family</td>
+      <td>9.0</td>
+      <td>1719</td>
+      <td><a href="https://www.imdb.com/title/tt32856857/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Prema Yudham</td>
+      <td>2026</td>
+      <td>Romance</td>
+      <td>9.0</td>
+      <td>1015</td>
+      <td><a href="https://www.imdb.com/title/tt43688223/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Yamudu</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>9.0</td>
+      <td>1539</td>
+      <td><a href="https://www.imdb.com/title/tt43730020/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Mercy Killing</td>
+      <td>2024</td>
+      <td>Action,Drama,Romance</td>
+      <td>9.0</td>
+      <td>2692</td>
+      <td><a href="https://www.imdb.com/title/tt31986077/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Sandesham</td>
+      <td>1991</td>
+      <td>Comedy,Drama</td>
+      <td>9.0</td>
+      <td>6641</td>
+      <td><a href="https://www.imdb.com/title/tt0353975/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Godfather Part II</td>
+      <td>1974</td>
+      <td>Crime,Drama</td>
+      <td>9.0</td>
+      <td>1524056</td>
+      <td><a href="https://www.imdb.com/title/tt0071562/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Chakkora : Lunar Love Bird</td>
+      <td>2026</td>
+      <td>Mystery,Romance</td>
+      <td>9.0</td>
+      <td>3004</td>
+      <td><a href="https://www.imdb.com/title/tt44934534/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>You Can See Everything</td>
+      <td>2026</td>
+      <td>Biography,Comedy,Crime</td>
+      <td>9.0</td>
+      <td>33924</td>
+      <td><a href="https://www.imdb.com/title/tt45368240/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>12 Angry Men</td>
+      <td>1957</td>
+      <td>Crime,Drama</td>
+      <td>9.0</td>
+      <td>1012110</td>
+      <td><a href="https://www.imdb.com/title/tt0050083/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Dominion</td>
+      <td>2018</td>
+      <td>Documentary</td>
+      <td>8.9</td>
+      <td>5346</td>
+      <td><a href="https://www.imdb.com/title/tt5773402/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>O.J.: Made in America</td>
+      <td>2016</td>
+      <td>Biography,Crime,Documentary</td>
+      <td>8.9</td>
+      <td>24299</td>
+      <td><a href="https://www.imdb.com/title/tt5275892/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Yesterday</td>
+      <td>1988</td>
+      <td>Drama</td>
+      <td>8.9</td>
+      <td>3736</td>
+      <td><a href="https://www.imdb.com/title/tt0170783/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Secrets of Sinauli</td>
+      <td>2021</td>
+      <td>Documentary,History</td>
+      <td>8.9</td>
+      <td>2270</td>
+      <td><a href="https://www.imdb.com/title/tt13577982/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>THEVR10: A dokumentumfilm</td>
+      <td>2023</td>
+      <td>Documentary</td>
+      <td>8.9</td>
+      <td>1270</td>
+      <td><a href="https://www.imdb.com/title/tt28970800/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Message</td>
+      <td>1976</td>
+      <td>Adventure,Biography,Drama</td>
+      <td>8.9</td>
+      <td>12251</td>
+      <td><a href="https://www.imdb.com/title/tt0075143/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Sarsenapati Hambirrao</td>
+      <td>2022</td>
+      <td>Action,Drama,History</td>
+      <td>8.9</td>
+      <td>3149</td>
+      <td><a href="https://www.imdb.com/title/tt14090476/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Aha Naa Pellanta</td>
+      <td>1987</td>
+      <td>Comedy</td>
+      <td>8.9</td>
+      <td>3626</td>
+      <td><a href="https://www.imdb.com/title/tt0249336/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Om</td>
+      <td>1995</td>
+      <td>Action,Crime,Drama</td>
+      <td>8.9</td>
+      <td>4825</td>
+      <td><a href="https://www.imdb.com/title/tt3189256/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Fight Maha</td>
+      <td>2026</td>
+      <td>Thriller</td>
+      <td>8.9</td>
+      <td>1553</td>
+      <td><a href="https://www.imdb.com/title/tt39281522/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Kalagamanam</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>8.9</td>
+      <td>1505</td>
+      <td><a href="https://www.imdb.com/title/tt41527740/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Beatles: Get Back - The Rooftop Concert</td>
+      <td>2022</td>
+      <td>Documentary,Music</td>
+      <td>8.9</td>
+      <td>2086</td>
+      <td><a href="https://www.imdb.com/title/tt16899584/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Lord of the Rings: The Fellowship of the Ring</td>
+      <td>2001</td>
+      <td>Adventure,Drama,Fantasy</td>
+      <td>8.9</td>
+      <td>2252463</td>
+      <td><a href="https://www.imdb.com/title/tt0120737/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Dipu Number 2</td>
+      <td>1996</td>
+      <td>Adventure,Drama,Family</td>
+      <td>8.9</td>
+      <td>2821</td>
+      <td><a href="https://www.imdb.com/title/tt1935109/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Thaniyavartanam</td>
+      <td>1987</td>
+      <td>Drama,Thriller</td>
+      <td>8.9</td>
+      <td>3761</td>
+      <td><a href="https://www.imdb.com/title/tt0237820/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Rich Kid</td>
+      <td>2026</td>
+      <td>Drama</td>
+      <td>8.9</td>
+      <td>1499</td>
+      <td><a href="https://www.imdb.com/title/tt39239696/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>BLEACH: Thousand-Year Blood War - The Calamity</td>
+      <td>2026</td>
+      <td>Action,Animation,Fantasy</td>
+      <td>8.9</td>
+      <td>18349</td>
+      <td><a href="https://www.imdb.com/title/tt43383343/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Attack on Titan: The Last Attack</td>
+      <td>2024</td>
+      <td>Action,Adventure,Animation</td>
+      <td>8.9</td>
+      <td>40716</td>
+      <td><a href="https://www.imdb.com/title/tt33175825/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Gandhada Gudi</td>
+      <td>2022</td>
+      <td>Adventure,Documentary,Family</td>
+      <td>8.9</td>
+      <td>3165</td>
+      <td><a href="https://www.imdb.com/title/tt21288778/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Bangarada Manushya</td>
+      <td>1972</td>
+      <td>Drama</td>
+      <td>8.9</td>
+      <td>1151</td>
+      <td><a href="https://www.imdb.com/title/tt0315255/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>David Attenborough: A Life on Our Planet</td>
+      <td>2020</td>
+      <td>Biography,Documentary</td>
+      <td>8.9</td>
+      <td>36552</td>
+      <td><a href="https://www.imdb.com/title/tt11989890/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>Paint Drying</td>
+      <td>2016</td>
+      <td>Documentary</td>
+      <td>8.9</td>
+      <td>1708</td>
+      <td><a href="https://www.imdb.com/title/tt5375100/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Unnamed</td>
+      <td>2016</td>
+      <td>Drama</td>
+      <td>8.9</td>
+      <td>6245</td>
+      <td><a href="https://www.imdb.com/title/tt5510934/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>The Phantom of the Opera at the Royal Albert Hall</td>
+      <td>2011</td>
+      <td>Drama,Musical,Romance</td>
+      <td>8.8</td>
+      <td>11079</td>
+      <td><a href="https://www.imdb.com/title/tt2077886/" target="_blank">View on IMDb</a></td>
+    </tr>
+    <tr>
+      <td>LYF: Love Your Father</td>
+      <td>2025</td>
+      <td>Drama</td>
+      <td>8.8</td>
+      <td>1078</td>
+      <td><a href="https://www.imdb.com/title/tt33095912/" target="_blank">View on IMDb</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+function searchMovie() {
+    let input = document.getElementById("search");
+    let filter = input.value.toLowerCase();
+    let rows = document.querySelectorAll("table tr");
+
+    for (let i = 1; i < rows.length; i++) {
+        let text = rows[i].innerText.toLowerCase();
+        rows[i].style.display =
+            text.includes(filter) ? "" : "none";
+    }
+}
+</script>
+
+</body>
+</html>
